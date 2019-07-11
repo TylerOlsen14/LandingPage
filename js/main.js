@@ -4,6 +4,9 @@ const time = document.getElementById('time'),
   name = document.getElementById('name'),
   focus = document.getElementById('focus');
 
+// Options
+const showAmPm = true;
+
 // Show time every second
 function showTime() {
   let today = new Date(),
@@ -14,11 +17,11 @@ function showTime() {
 // Set AM or PM
   const amPm = hour >= 12 ? 'PM' : 'AM';
 
-// 12hr Format
-  hour = hour % 12 || 12;
+// // 12hr Format
+//   hour = hour % 12 || 12;
 
   //Output time
-  time.innerHTML = `${hour}<span>:</span>${addZero(min)}<span>:</span>${addZero(sec)}`;
+  time.innerHTML = `${hour}<span>:</span>${addZero(min)}<span>:</span>${addZero(sec)} ${showAmPm ? amPm : ''}`;
 
   setTimeout(showTime, 1000);
 }
